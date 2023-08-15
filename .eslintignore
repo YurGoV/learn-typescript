@@ -1,0 +1,5 @@
+node_modules
+exclude
+.eslintrc
+.eslintrc.js
+.eslintrc.cjs
