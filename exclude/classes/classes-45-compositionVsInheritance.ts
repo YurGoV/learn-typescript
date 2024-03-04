@@ -1,4 +1,4 @@
-class User {
+class User45 {
   name: string;
 
   constructor(name: string) {
@@ -8,44 +8,51 @@ class User {
 
 // inheritance there not good
 // - we mix utilitary & business types
-class Users extends Array<User> {
+class Users extends Array<User45> {
   searchByName(name: string) {
-    return this.filter(u => u.name === name);
+    return this.filter((u) => u.name === name);
   }
+
+  //  - not good, but replase [object][object]...
+  // override toString(): string {
+  //   return this.map((u) => u.name).join(', ');
+  // }
 }
 
-
 const users = new Users();
-users.push(new User('Joe'));
-console.log(users.toString()); // error = [object][object]
+users.push(new User45('Joe'));
+console.log(users.toString()); //  = [object][object]
 
-//composition there more better: (its no composition there now)
+//composition there more better: (its no full composition there now, becouse only one element)
 class UserList {
-  users: User[];
+  users: User45[];
 
-  push(u: User) {
+  push(u: User45) {
     this.users.push(u);
   }
 }
 
-// bad:
-class Payment {
+// bad: (we mix different domains)
+class Payment45 {
   date: Date;
 }
-class UserWithPayment extends Payment {
+class UserWithPayment extends Payment45 {
   name: string;
 }
+
 //better (composition):
+// composition there - it's some agregation class 
+// without hard links/mix user & payment
 class UserWithPaymentComposition {
-  user: User;
+  user: User45;
 
-  payment: Payment;
+  payment: Payment45;
 
-  constructor(user: User, payment: Payment) {
+  constructor(user: User45, payment: Payment45) {
     this.user = user;
     this.payment = payment;
   }
 }
 
-
-// NOTE: inheritance best when we do it in one domain
+// NOTE: inheritance best when 
+// we do it in one domain

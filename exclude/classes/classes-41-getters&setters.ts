@@ -1,5 +1,4 @@
-
-class User {
+class User41 {
   _login: string;
 
   password: string;
@@ -13,6 +12,8 @@ class User {
     //good if we need in side effects
   }
 
+  // NOTE: if only getter (without setter), the 'login' will be readonly
+  // return type of getter - as input types in setter
   get login() {
     return this.login;
   }
@@ -20,5 +21,4 @@ class User {
   async setLogin(l: string) {
     // NOTE: if we need async-await - can do it in methoods, not in getters/setters
   }
-
 }
