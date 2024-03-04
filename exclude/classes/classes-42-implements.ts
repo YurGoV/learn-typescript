@@ -1,39 +1,38 @@
 interface ILogger {
-  log(...args): void
-  error(...args): void
+  log(...args: string[]): void;
+  error(...args: string[]): void;
 }
 
-class Logger implements ILogger {
+class Logger42 implements ILogger {
   log(...args: any[]): void {
     console.log(...args);
   }
 
   async error(...args: any[]): Promise<void> {
     // post on outer system
-    await (console.log('post in outer system'));
+    console.log('post in outer system');
     throw new Error('Method not implemented.');
   }
-
 }
 
 interface IPayable {
-  pay(paymentId: number): void
-  price?: number
+  pay(paymentId: number): void;
+  price?: number;
 }
 
 interface IDeletable {
-  delete(): void
+  delete(): void;
 }
 
-class User implements IPayable, IDeletable {
+class User42 implements IPayable, IDeletable {
   delete(): void {
     throw new Error('Method not implemented.');
   }
 
   pay(paymentId: number | string): void {
-    throw new Error('Method not implemented.');
+    // pay(paymentId: number): void {
+    console.log('simple log');
   }
 
-  price?: number | undefined;
-
+  price?: number;
 }

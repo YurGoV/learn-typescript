@@ -1,53 +1,4 @@
-type PaymentStatus = 'new' | 'paid';
-
-class Payment {
-  id: number;
-
-  status: PaymentStatus = 'new';
-
-  constructor(id: number) {
-    this.id = id;
-  }
-
-  pay() {
-    this.status = 'paid';
-  }
-}
-
-class PersistedPayment extends Payment {
-  databaseId: number;
-
-  paidAt: Date;
-
-  // NOTE: we can (or not) redefine constructor, or make it empty
-  constructor() {
-    const id = Math.random();
-    super(id);
-  }
-
-  save() {
-    //  new method 
-  }
-
-  // NOTE: we can override method
-  // pay(date?: Date) {
-  //   // this.status = 'paid'; // NOT GOOD
-  //   super.pay();
-  //   if (date) { this.paidAt = date; }
-  // }
-
-  // NEW in js - override:
-  override pay(date?: Date) {
-    // this.status = 'paid'; // NOT GOOD
-    super.pay();
-    if (date) { this.paidAt = date; }
-  }
-}
-
-// new PersistedPayment().
-
-
-class User {
+class User44 {
   name: string = 'user';
 
   constructor() {
@@ -55,8 +6,8 @@ class User {
   }
 }
 
-class Admin extends User {
-  name: string = 'admin';
+class Admin44 extends User44 {
+  override name: string = 'admin';
 
   constructor() {
     super();
@@ -64,8 +15,7 @@ class Admin extends User {
   }
 }
 
-new Admin();
-
+new Admin44();
 
 class HttpError extends Error {
   code: number;

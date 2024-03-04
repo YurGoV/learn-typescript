@@ -17,7 +17,7 @@ class Payment {
 
 const p = new Payment();
 
-const user = {
+const user49 = {
   id: 1,
   paymentDate: p.getDate,
   paymentDateBinded: p.getDate.bind(p),
@@ -26,10 +26,10 @@ const user = {
 };
 
 console.log(p.getDate());
-console.log('upD ', user.paymentDate()); // undefind & we have NO error in ts
-console.log('upDB ', user.paymentDateBinded());
-// console.log('upDWT ',user.paymentDateWithThis());// undefind & we HAVE error in ts
-console.log('upDA ', user.paymentDateArrow());
+console.log('upD ', user49.paymentDate()); // undefind & we have NO error in ts
+console.log('upDB ', user49.paymentDateBinded());
+// console.log('upDWT ',user49.paymentDateWithThis());// undefind & we HAVE error in ts
+console.log('upDA ', user49.paymentDateArrow());
 
 //NOTE: !!!!?????? but:
 class PaymentPersisted extends Payment {

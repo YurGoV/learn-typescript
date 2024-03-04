@@ -1,9 +1,9 @@
-type PaymentStatus = 'new' | 'paid';
+type PaymentStatus43 = 'new' | 'paid';
 
-class Payment {
+class Payment43 {
   id: number;
 
-  status: PaymentStatus = 'new';
+  status: PaymentStatus43 = 'new';
 
   constructor(id: number) {
     this.id = id;
@@ -14,7 +14,7 @@ class Payment {
   }
 }
 
-class PersistedPayment extends Payment {
+class PersistedPayment43 extends Payment43 {
   databaseId: number;
 
   paidAt: Date;
@@ -26,7 +26,7 @@ class PersistedPayment extends Payment {
   }
 
   save() {
-    //  new method 
+    //  new method
   }
 
   // NOTE: we can override method
@@ -36,11 +36,14 @@ class PersistedPayment extends Payment {
   //   if (date) { this.paidAt = date; }
   // }
 
-  // NEW in js - override:
+  // NEW in ts - override:
+  // !!!always use uverride
   override pay(date?: Date) {
     // this.status = 'paid'; // NOT GOOD
     super.pay();
-    if (date) { this.paidAt = date; }
+    if (date) {
+      this.paidAt = date;
+    }
   }
 }
 

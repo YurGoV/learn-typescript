@@ -8,11 +8,11 @@ abstract class Controller {
   }
 }
 
-new Controller();// error, because abstract class
+// new Controller(); // error, because abstract class
 
 class UserController extends Controller {
   handle(req: any): void {
-    console.log('new');
+    console.log(req);
   }
 }
 
